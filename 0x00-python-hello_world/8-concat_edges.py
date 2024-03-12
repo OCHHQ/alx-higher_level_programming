@@ -2,5 +2,5 @@
 str = "Python is an interpreted, interactive, object-oriented programming\
 language that combines remarkable power with very clear syntax"
 words = str.split()
-result = " ".join(words[5:8]) + " with " + words[0]
-print(result)
+str = " ".join(words[5:8]) + " with " + words[0]
+print(str)
