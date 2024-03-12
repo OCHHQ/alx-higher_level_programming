@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 str = "Python is an interpreted, interactive, object-oriented programming\
 language that combines remarkable power with very clear syntax"
-words = str.split()
-str = " ".join(words[5:8]) + " with " + words[0]
+str = (str[38:66] + " " + str[-22:-18] + " " + str[:6])
 print(str)
