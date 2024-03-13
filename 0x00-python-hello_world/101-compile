@@ -1,2 +1,21 @@
-#!/usr/bin/python3
-python3 -c "import py_compile; py_compile.compile('$PYFILE', '$PYFILEc')"
+#!/bin/bash
+PYFILE="$PYFILE"
+
+if [ -z "$PYFILE" ]; then
+    echo "Error: PYFILE environment variable is not set"
+    exit 1
+fi
+
+
+if [ ! -f "$PYFILE" ]; then
+    echo "Error: File '$PYFILE' does not exist"
+    exit 1
+fi
+
+PYFILEC="${PYFILE}c"
+
+python3 -m py_compile "$PYFILE"
+
+mv "${PYFILE}c" "$PYFILEC"
+
+echo "Compilation successful. Compiled file: $PYFILEC"
