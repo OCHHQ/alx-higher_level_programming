@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+""" Square that inherits from Rectangle """
+
 class BaseGeometry:
     """
     Base class representing base geometry.
