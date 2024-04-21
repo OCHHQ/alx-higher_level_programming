@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Update the class Square by adding the public getter and setter size"""
+"""Square by adding the public method def update(self, *args, **kwargs) that assigns attributes"""
 
 from models.rectangle import Rectangle
 
@@ -24,3 +24,13 @@ class Square(Rectangle):
     def __str__(self):
         """Return the string representation of Square instance."""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+
+    def update(self, *args, **kwargs):
+        """Assign attributes based on the given arguments and keyworded arguments."""
+        if args:
+            attrs = ["id", "size", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
