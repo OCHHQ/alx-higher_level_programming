@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""class Rectangle by overriding the __str__ method so that it returns"""
+"""mproving the public method def display(self): to print in stdout the Rectangle"""
 
 from models.base import Base
 
@@ -76,9 +76,12 @@ class Rectangle(Base):
 
     def display(self):
         """Display the Rectangle instance with the character '#'."""
-        for _ in range(self.height):
-            print("#" * self.width)
+        for i in range(self.y):
+            print()
+        for j in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """Return the string representation of Rectangle instance."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+
