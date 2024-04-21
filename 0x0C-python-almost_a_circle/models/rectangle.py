@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""mproving the public method def display(self): to print in stdout the Rectangle"""
+"""Rectangle by adding the public method def update(self, *args): that assigns an argument to each attribute"""
 
 from models.base import Base
 
