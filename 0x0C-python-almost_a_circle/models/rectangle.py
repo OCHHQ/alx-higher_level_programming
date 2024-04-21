@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Update the class Rectangle by adding the public method """
+"""class Rectangle by overriding the __str__ method so that it returns"""
 
 from models.base import Base
 
@@ -78,3 +78,7 @@ class Rectangle(Base):
         """Display the Rectangle instance with the character '#'."""
         for _ in range(self.height):
             print("#" * self.width)
+
+    def __str__(self):
+        """Return the string representation of Rectangle instance."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
