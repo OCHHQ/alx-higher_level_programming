@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Rectangle by adding the public method def update(self, *args): that assigns an argument to each attribute"""
+"""Update the class Rectangle by updating the public method def update(self, *args)"""
 
 from models.base import Base
 
@@ -85,3 +85,12 @@ class Rectangle(Base):
         """Return the string representation of Rectangle instance."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
 
+    def update(self, *args, **kwargs):
+        """Assign key/value arguments to attributes."""
+        if args:
+            attrs = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
