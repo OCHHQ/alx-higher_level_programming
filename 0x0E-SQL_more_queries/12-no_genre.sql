@@ -1,6 +1,11 @@
+--
+-- 12-no_genre.sql
+--
+-- Lists all shows contained in hbtn_0d_tvshows without a genre linked.
+--
+
 SELECT 
-    ts.title, 
-    tsg.genre_id
+    ts.title, tsg.genre_id
 FROM 
     tv_shows ts
 LEFT JOIN 
