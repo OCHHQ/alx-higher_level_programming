@@ -1,13 +1,12 @@
 #!/usr/bin/node
+// 7-occurrences.js
 
-module.exports = class Square {
-  constructor (size) {
-    this.size = size;
-  }
-
-  print () {
-    for (let i = 0; i < this.size; i++) {
-      console.log('X'.repeat(this.size));
+exports.nbOccurences = function (list, searchElement) {
+  let count = 0;
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === searchElement) {
+      count++;
     }
   }
+  return count;
 };
