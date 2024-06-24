@@ -1,5 +1,4 @@
 #!/usr/bin/node
-// 5-square.js
 
 module.exports = class Square {
   constructor (size) {
