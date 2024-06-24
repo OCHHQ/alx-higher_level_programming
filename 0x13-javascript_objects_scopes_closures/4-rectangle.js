@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// 4-rectangle.js
 
 class Rectangle {
   constructor (w, h) {
@@ -6,6 +7,7 @@ class Rectangle {
       this.width = w;
       this.height = h;
     }
+    // If the conditions are not met, the object will remain uninitialized.
   }
 
   print () {
@@ -31,4 +33,3 @@ class Rectangle {
 }
 
 module.exports = Rectangle;
-
