@@ -1,37 +1,30 @@
 #!/usr/bin/python3
-import sys
-import MySQLdb
+"""
+This script takes in an argument and
+displays all values in the states
+where `name` matches the argument
+from the database `hbtn_0e_0_usa`.
+"""
 
-def main():
-    if len(sys.argv) != 5:
-        print("Usage: ./2-my_filter_states.py <mysql_username> <mysql_password> <mysql_database> <state_name>")
-        sys.exit(1)
+import MySQLdb as db
+from sys import argv
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
+if __name__ == '__main__':
+    """
+    Access to the database and get the states
+    from the database.
+    """
+    db_connect = db.connect(host="localhost", port=3306,
+                            user=argv[1], passwd=argv[2], db=argv[3])
+    db_cursor = db_connect.cursor()
 
-    try:
-        # Connect to MySQL
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
-        cursor = db.cursor()
+    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC"
+    db_cursor.execute(query, (argv[4],))
+    rows_selected = db_cursor.fetchall()
 
-        # Execute query to select states with a name that matches the argument
-        query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
-        cursor.execute(query)
-        rows = cursor.fetchall()
+    for row in rows_selected:
+        print(row)
 
-        # Print results
-        for row in rows:
-            print(row)
+    db_cursor.close()
+    db_connect.close()
 
-        cursor.close()
-        db.close()
-
-    except MySQLdb.Error as e:
-        print(f"MySQLdb Error {e.args[0]}: {e.args[1]}")
-        sys.exit(1)
-
-if __name__ == "__main__":
-    main()
