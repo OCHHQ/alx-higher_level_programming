@@ -8,6 +8,7 @@ import urllib.request
 import urllib.parse
 import sys
 
+
 def email_valid(email):
     """
     This function sends a POST request to the given URL with the provided email
@@ -19,6 +20,7 @@ def email_valid(email):
     req = urllib.request.Request(url, data)
     with urllib.request.urlopen(req) as response:
         return response.read().decode("utf-8")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
