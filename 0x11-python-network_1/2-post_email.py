@@ -1,26 +1,24 @@
 #!/usr/bin/python3
 """
 This script takes an email address as an argument, sends a POST request to
-(link unavailable)<email> and displays the
-response.
+a specified URL with the email, and displays the response.
 """
 
 import urllib.request
 import urllib.parse
 import sys
 
-
 def email_valid(email):
     """
-    This function sends a POST request to the given URL
+    This function sends a POST request to the given URL with the provided email
+    and returns the response.
     """
-    url = "(link unavailable)"
+    url = "(link unavailable)"  # Specify the actual URL here
     data = urllib.parse.urlencode({"email": email})
     data = data.encode("ascii")
     req = urllib.request.Request(url, data)
     with urllib.request.urlopen(req) as response:
         return response.read().decode("utf-8")
-
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
