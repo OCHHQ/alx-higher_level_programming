@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 This script takes a URL as an argument, sends a request to the URL,
 and displays the value of the X-Request-Id variable found.
@@ -6,6 +7,7 @@ and displays the value of the X-Request-Id variable found.
 
 import urllib.request
 import sys
+
 
 def main():
     """
@@ -27,5 +29,7 @@ def main():
     except urllib.error.HTTPError as e:
         print("Error:", e)
 
+
 if __name__ == "__main__":
+
     main()
