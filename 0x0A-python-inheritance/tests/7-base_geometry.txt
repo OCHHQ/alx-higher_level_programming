@@ -1,0 +1,30 @@
+Manual Testing Instructions:
+
+1. Instantiate the BaseGeometry class.
+2. Call integer_validator with a valid integer.
+3. Call integer_validator with a non-integer value (expect TypeError).
+4. Call integer_validator with an integer <= 0 (expect ValueError).
+
+Example Test Cases:
+
+bg = BaseGeometry()
+
+# Valid integer
+bg.integer_validator("my_int", 12)
+bg.integer_validator("width", 89)
+
+# Invalid integer
+try:
+    bg.integer_validator("name", "John")
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))  # Expected: [TypeError] name must be an integer
+
+try:
+    bg.integer_validator("age", 0)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))  # Expected: [ValueError] age must be greater than 0
+
+try:
+    bg.integer_validator("distance", -4)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))  # Expected: [ValueError] distance must be greater than 0
